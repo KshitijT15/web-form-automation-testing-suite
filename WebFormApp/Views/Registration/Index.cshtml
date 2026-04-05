@@ -1,0 +1,177 @@
+@model UserModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Register</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f0f4f8;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            width: 420px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 6px;
+        }
+
+        .card .subtitle {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 28px;
+        }
+
+        .success-box {
+            background: #f0fdf4;
+            border: 1px solid #86efac;
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: #166534;
+            font-size: 14px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .field {
+            margin-bottom: 18px;
+        }
+
+        .field label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: #444;
+            margin-bottom: 6px;
+        }
+
+        .field input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #1a1a2e;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .field input:focus {
+            border-color: #3b82f6;
+        }
+
+        .field input.input-error {
+            border-color: #f87171;
+        }
+
+        .error-msg {
+            font-size: 12px;
+            color: #ef4444;
+            margin-top: 4px;
+            display: block;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 6px;
+            transition: background 0.2s;
+        }
+
+        button:hover { background: #1d4ed8; }
+
+        .divider {
+            border: none;
+            border-top: 1px solid #f1f5f9;
+            margin: 24px 0 20px;
+        }
+
+        .brand {
+            text-align: center;
+            font-size: 13px;
+            color: #aaa;
+            margin-bottom: 28px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <div class="brand">WebForm App</div>
+
+    <h2>Create Account</h2>
+    <p class="subtitle">Fill in your details to register</p>
+
+    @if (ViewBag.Success != null) {
+        <div class="success-box" id="success-message">
+            &#10003; @ViewBag.Success
+        </div>
+    }
+
+    <form asp-controller="Registration" asp-action="Index" method="post" id="registration-form" novalidate>
+
+        <div class="field">
+            <label>Full Name</label>
+            <input asp-for="Name" id="Name" placeholder="e.g. Rahul Sharma"
+                   class="@(ViewData.ModelState["Name"]?.Errors.Count > 0 ? "input-error" : "")" />
+            <span asp-validation-for="Name" id="name-error" class="error-msg"></span>
+        </div>
+
+        <div class="field">
+            <label>Email Address</label>
+            <input asp-for="Email" id="Email" placeholder="e.g. rahul@example.com"
+                   class="@(ViewData.ModelState["Email"]?.Errors.Count > 0 ? "input-error" : "")" />
+            <span asp-validation-for="Email" id="email-error" class="error-msg"></span>
+        </div>
+
+        <div class="field">
+            <label>Phone Number</label>
+            <input asp-for="Phone" id="Phone" placeholder="10-digit number"
+                   class="@(ViewData.ModelState["Phone"]?.Errors.Count > 0 ? "input-error" : "")" />
+            <span asp-validation-for="Phone" id="phone-error" class="error-msg"></span>
+        </div>
+
+        <div class="field">
+            <label>Password</label>
+            <input asp-for="Password" id="Password" type="password" placeholder="Min 8 characters"
+                   class="@(ViewData.ModelState["Password"]?.Errors.Count > 0 ? "input-error" : "")" />
+            <span asp-validation-for="Password" id="password-error" class="error-msg"></span>
+        </div>
+
+        <button type="submit" id="submit-btn">Register</button>
+    </form>
+</div>
+
+@section Scripts { @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); } }
+</body>
+</html>

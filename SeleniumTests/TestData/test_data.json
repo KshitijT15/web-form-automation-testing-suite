@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Rahul Sharma",
+    "email": "amit426@outlook.com",
+    "phone": "9740687986",
+    "password": "Secure#99",
+    "isValid": true,
+    "failField": ""
+  },
+  {
+    "name": "Priya Patel",
+    "email": "amit680@outlook.com",
+    "phone": "9461121620",
+    "password": "Hello@999",
+    "isValid": true,
+    "failField": ""
+  },
+  {
+    "name": "Sneha Joshi",
+    "email": "priya860@gmail.com",
+    "phone": "9990745205",
+    "password": "Hello@999",
+    "isValid": true,
+    "failField": ""
+  },
+  {
+    "name": "Amit Singh",
+    "email": "missing@",
+    "phone": "9246167188",
+    "password": "Secure#99",
+    "isValid": false,
+    "failField": "email"
+  },
+  {
+    "name": "Amit Singh",
+    "email": "missing@",
+    "phone": "9635560769",
+    "password": "Pass@1234",
+    "isValid": false,
+    "failField": "email"
+  },
+  {
+    "name": "Amit Singh",
+    "email": "rahul459@outlook.com",
+    "phone": "9924852213",
+    "password": "123",
+    "isValid": false,
+    "failField": "password"
+  },
+  {
+    "name": "Rahul Sharma",
+    "email": "rahul409@yahoo.com",
+    "phone": "9284472540",
+    "password": "123",
+    "isValid": false,
+    "failField": "password"
+  },
+  {
+    "name": "",
+    "email": "sneha393@yahoo.com",
+    "phone": "9264825548",
+    "password": "Hello@999",
+    "isValid": false,
+    "failField": "name"
+  }
+]
