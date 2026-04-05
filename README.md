@@ -6,7 +6,7 @@ An end-to-end test automation project built with **C++**, **ASP.NET Core**, and 
 
 ## Live Demo
 
-> Deployed on Railway — [your-app.up.railway.app][(https://your-app.up.railway.app)](https://web-form-automation-testing-suite-production.up.railway.app/)
+> Deployed on Railway — (https://web-form-automation-testing-suite-production.up.railway.app/)
 
 ---
 
